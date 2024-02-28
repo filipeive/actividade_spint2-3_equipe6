@@ -21,10 +21,10 @@ O objetivo deste projeto é criar uma API em JavaScript/NodeJS para consulta da 
 
 Para executar o projeto localmente, siga estas etapas:
 
-1. Clone o repositório para o seu ambiente de desenvolvimento.
-2. Navegue até o diretório do projeto.
+1. Aceda ao sistema através do link: <a href="http://ec2-3-213-154-220.compute-1.amazonaws.com/who_host/">Consulta do dominio</a>
+2. Escreva o endereco e clica o botão Consultar.
 3. Certifique-se de ter o Docker instalado em sua máquina.
-4. Execute o comando `docker-compose up` para iniciar o container Docker localmente.
+4. Execute o comando `docker run` para iniciar o container Docker localmente.
 5. Acesse a API em `http://localhost:3000/api/domain-info/{domínio}`.
 6. Utilize a página HTML fornecida para fazer consultas à API.
 
