@@ -5,11 +5,11 @@ const cors = require('cors');
 
 // Sua chave de API
 const API_KEY = 'ws6r4sbrlnhmv0v8o5lucurb632ruqiezi42p755cw7u5s98qn0xuccummud197zbsx5nk';
-  // Middleware para habilitar CORS
+// Middleware para habilitar CORS
 router.use(cors());
-router.get('/', async (req, res) => {
+router.get('public/:domain', async (req, res) => {
   try {
-    const domain = req.params.domain;
+    const domain = req.params.domain; // Obtém o valor do parâmetro 'domain' da URL
     // Fazendo uma requisição para a API do Who Hosts This?
     const response = await axios.get(`https://www.who-hosts-this.com/APIEndpoint/Detect?key=${API_KEY}&url=${domain}`);
     
