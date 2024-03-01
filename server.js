@@ -8,7 +8,7 @@ const teste = require('./routes/teste');
 app.use('/', teste);
 
 const getDomain = require('./routes/getDomain');
-app.use('/api/domain-info/:domain', getDomain);
+app.use('/api', getDomain);
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
