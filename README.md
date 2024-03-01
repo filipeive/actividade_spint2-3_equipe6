@@ -25,7 +25,7 @@ Para executar o projeto localmente, siga estas etapas:
 2. Escreva o endereco e clica o botão Consultar.
 3. Certifique-se de ter o Docker instalado em sua máquina.
 4. Execute o comando `docker run` para iniciar o container Docker localmente.
-5. Acesse a API em `http://localhost:3000/api/domain-info/{domínio}`.
+5. Acesse a API em `http://localhost:5600/api/domain-info/{domínio}`.
 6. Utilize a página HTML fornecida para fazer consultas à API.
 
 ## Execução na AWS Cloud

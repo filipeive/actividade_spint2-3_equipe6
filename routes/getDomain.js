@@ -7,7 +7,7 @@ const cors = require('cors');
 const API_KEY = 'ws6r4sbrlnhmv0v8o5lucurb632ruqiezi42p755cw7u5s98qn0xuccummud197zbsx5nk';
 // Middleware para habilitar CORS
 router.use(cors());
-router.get('public/:domain', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const domain = req.params.domain; // Obtém o valor do parâmetro 'domain' da URL
     // Fazendo uma requisição para a API do Who Hosts This?
