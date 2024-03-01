@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,150 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <style>
+   /* Estilos para o corpo da página */
+body {
+  color: #fafafa;
+  background: url('img/bg.jpeg') center/cover;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* Camada preta por trás do conteúdo */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* Estilos para a barra de navegação */
+#navbarNav {
+  margin-left: 20px;
+}
+
+.navlink {
+  padding: 10px;
+}
+
+.navbar-nav .nav-item:hover {
+  color: #000000;
+  background-color: rgba(0, 19, 227, 0.2);
+  border-radius: 5px;
+}
+
+/* Estilos para o container principal */
+.container {
+  background-color: rgba(81, 184, 248, 0.9);
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+/* Estilos para o rodapé */
+.footer {
+  color: #ffffff;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.footer a {
+  color: #000000;
+}
+.footer p{
+  border-radius: 10px;
+  background-color: rgba(0, 16, 195, 0.526);
+  display: block;
+  padding: 10px;
+}
+/* Estilos para a seção "Sobre a Aplicação" */
+#aboutContent {
+  position: fixed;
+  top: 100px;
+  left: 70%;
+  transform: translateX(-50%);
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 999;
+}
+
+/* Estilos para os cartões dos membros */
+.member-card {
+  text-align: center;
+  align-items: center;
+  padding-top: 20px;
+  color: #000;
+}
+
+.member-card img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* Estilos para os ícones de contato */
+.contact-icons {
+  text-align: center;
+}
+
+.contact-icons li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.contact-icons a {
+  color: #000;
+  font-size: 24px;
+}
+
+  </style>
 </head>
+
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="#" style="font-weight: bold; font-size: 25px; color: #ffffff;">
+        <i class="fas fa-globe m-2"></i>Consulta de Domínio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <!--  <li class="nav-item active">
+            <a class="nav-link" href="#">Consulta<span class="sr-only">(current)</span></a>
+          </li> -->
+          <li class="nav-item active">
+            <a class="nav-link" href="#" id="aboutLink"> Sobre a Aplicação <i class="fas fa-info-circle"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>  
   <div class="container mt-5">
     <h1 class="mb-4">Consulta de Domínio</h1>
     <form id="domainForm" class="mb-3">
       <div class="input-group">
-        <input type="text" id="domainInput" class="form-control" placeholder="Digite o domínio" aria-label="Digite o domínio" aria-describedby="button-addon" required>
+        <input type="text" id="domainInput" class="form-control" placeholder="Digite o domínio"
+          aria-label="Digite o domínio" aria-describedby="button-addon">
         <div class="input-group-append">
-          <button class="btn btn-primary" type="submit" id="button-addon"><i class="fas fa-search"></i> Consultar</button>
+          <button class="btn btn-primary" type="submit" id="button-addon"><i class="fas fa-search"></i>
+            Consultar</button>
         </div>
       </div>
     </form>
@@ -34,6 +170,65 @@
       </table>
     </div>
   </div>
+  <!-- Seção "Sobre a Aplicação" -->
+  <div id="aboutContent">
+    <button id="closeAbout"
+      style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
+    <p><strong>Sobre a Aplicação</strong></p>
+    <p>Esta aplicação permite consultar informações de domínios, incluindo o provedor e o endereço IP associado.</p>
+    <p>Ela é útil para identificar detalhes de um domínio, como o provedor de hospedagem e o endereço IP atribuído.</p>
+    <p>Por exemplo, ao inserir "google.com" no campo de busca e clicar em "Consultar", você verá informações como o provedor de hospedagem e o endereço IP associado ao domínio "example.com".</p>
+    <p>Para usar a aplicação, insira o domínio desejado no campo de busca acima e clique em "Consultar". Os resultados serão exibidos abaixo.</p>
+  </div>
+  
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <h5 class="card-title">Membros da Equipe</h5>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card member-card">
+            <img src="img/filipe.jfif" class="card-img-center" alt="Foto de Filipe">
+            <div class="card-body">
+              <h5 class="card-title">Filipe Domingos dos Santos</h5>
+              <ul class="list-unstyled contact-icons">
+                <li><a href="mailto:EMAIL_MEMBRO_2"><i class="fas fa-envelope"></i></a></li>
+                <li><a href="URL_LINKEDIN_MEMBRO_2" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="URL_FACEBOOK_MEMBRO_2" target="_blank"><i class="fab fa-facebook"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card member-card">
+            <img src="URL_FOTO_MEMBRO_3" class="card-img-top" alt="Foto de  Lirio">
+            <div class="card-body">
+              <h5 class="card-title">Lírio Manga</h5>
+              <ul class="list-unstyled contact-icons">
+                <li><a href="mailto:EMAIL_MEMBRO_3"><i class="fas fa-envelope"></i></a></li>
+                <li><a href="URL_LINKEDIN_MEMBRO_3" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="URL_FACEBOOK_MEMBRO_3" target="_blank"><i class="fab fa-facebook"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card member-card">
+            <img src="img/carlos.jfif" class="card-img-top" alt="Foto de Carlos">
+            <div class="card-body">
+              <h5 class="card-title">Carlos Captine Mutemba</h5>
+              <ul class="list-unstyled contact-icons">
+                <li><a href="mailto:EMAIL_MEMBRO_4"><i class="fas fa-envelope"></i></a></li>
+                <li><a href="URL_LINKEDIN_MEMBRO_4" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="URL_FACEBOOK_MEMBRO_4" target="_blank"><i class="fab fa-facebook"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-3">© 2024 Equipe 6 - API Who Hosts This <br> Programa de Bolsas Compass UOL / AWS e Moçambique</p>
+    </div>
+  </footer>
 
   <!-- Bootstrap JS (opcional, necessário apenas se você estiver usando funcionalidades JavaScript do Bootstrap) -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -41,95 +236,94 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <script>
+    // Captura o link "Sobre" na barra de navegação
+    const aboutLink = document.getElementById('aboutLink');
+    // Captura a seção "Sobre a Aplicação"
+    const aboutContent = document.getElementById('aboutContent');
+    // Adiciona um evento de clique ao link "Sobre"
+    aboutLink.addEventListener('click', function (event) {
+      // Previne o comportamento padrão do link
+      event.preventDefault();
+      // Alterna a exibição da seção "Sobre a Aplicação"
+      aboutContent.style.display = aboutContent.style.display === 'none' ? 'block' : 'none';
+    });
     // Captura o formulário
-const domainForm = document.getElementById('domainForm');
-
-// Adiciona um evento de submissão ao formulário
-domainForm.addEventListener('submit', function(event) {
-  // Previne o comportamento padrão do formulário
-  event.preventDefault();
-
-  // Captura o valor do domínio inserido pelo usuário
-  const domainInput = document.getElementById('domainInput');
-  const domain = domainInput.value.trim(); // Remova espaços em branco extras
-  console.log('Valor do domínio:', domain); // Debug: Verifica se o valor do domínio está correto
-
-  // Verifica se o domínio não está vazio
-  if (domain !== "") {
-    // Verifica se o domínio é uma URL válida
-    if (isValidUrl(domain)) {
+    const domainForm = document.getElementById('domainForm');
+    // Adiciona um evento de submissão ao formulário
+    domainForm.addEventListener('submit', function (event) {
+      // Previne o comportamento padrão do formulário
+      event.preventDefault();
+      // Captura o valor do domínio inserido pelo usuário
+      const domain = document.getElementById('domainInput').value;
       // Chama a função para buscar informações do domínio
       fetchDomainInfo(domain);
-    } else {
-      // Exibe uma mensagem de erro para o usuário caso o domínio não seja uma URL válida
-      alert("Por favor, insira uma URL válida.");
-      // Limpa o campo de entrada
-      domainInput.value = "";
-    }
-  } else {
-    // Exibe uma mensagem de erro para o usuário caso o campo esteja vazio
-    alert("Por favor, insira um domínio válido.");
-    // Limpa o campo de entrada
-    domainInput.value = "";
-  }
-});
-
-// Função para verificar se a entrada é uma URL válida
-function isValidUrl(url) {
-  const urlPattern = /^(https?:\/\/)?([\w.]+\.[\w]{2,})$/;
-  return urlPattern.test(url);
-}
-
-// Função para buscar informações do domínio
-async function fetchDomainInfo(domain) {
-  try {
-    // Faz uma requisição para a API que criamos
-    const response = await fetch(`http://localhost:5500/api/domain-info/${domain}`);
-    console.log('Response:', response); // Debug: Verifica a resposta da requisição
-    // Verifica se a requisição foi bem-sucedida
-    if (!response.ok) {
-      throw new Error('Erro ao buscar informações do domínio');
-    }
-    // Converte a resposta para JSON
-    const data = await response.json();
-    // Exibe os dados na página
-    displayDomainInfo(data);
-  } catch (error) {
-    console.error('Erro:', error);
-  }
-}
-
-// Função para exibir os dados do domínio na página
-function displayDomainInfo(data) {
-  const tbody = document.querySelector('#domainTable tbody');
-  // Limpa o conteúdo anterior
-  tbody.innerHTML = '';
-  // Verifica se há resultados
-  if (data.results.length > 0) {
-    data.results.forEach(result => {
-      // Verifica se o provedor pode ser identificado
-      const provider = result.isp_name ? result.isp_name : 'Provedor Desconhecido';
-      // Converte o IP em uma descrição mais compreensível (por exemplo, usando um serviço de geolocalização)
-      // Neste exemplo, usaremos o próprio IP se não pudermos obter uma descrição
-      const ipDescription = result.ip;
-      // Cria uma nova linha na tabela
-      const row = tbody.insertRow();
-      // Insere as células da linha
-      const cellProvider = row.insertCell();
-      cellProvider.textContent = provider;
-      const cellIP = row.insertCell();
-      cellIP.textContent = ipDescription;
     });
-  } else {
-    // Se não houver resultados, exibe uma mensagem na tabela
-    const row = tbody.insertRow();
-    const cell = row.insertCell();
-    cell.colSpan = 2;
-    cell.textContent = 'Nenhuma informação encontrada para este domínio.';
-  }
-}
+
+    // Função para buscar informações do domínio
+    async function fetchDomainInfo(domain) {
+      try {
+        // Faz uma requisição para a API que criamos
+        const response = await fetch(`http://localhost:5500/api/domain-info/${domain}`);
+        // Verifica se a requisição foi bem-sucedida
+        if (!response.ok) {
+          throw new Error('Erro ao buscar informações do domínio');
+        }
+        // Converte a resposta para JSON
+        const data = await response.json();
+        // Exibe os dados na página
+        displayDomainInfo(data);
+      } catch (error) {
+        console.error('Erro:', error);
+      }
+    }
+    // Função para exibir os dados do domínio na página
+    function displayDomainInfo(data) {
+      const tbody = document.querySelector('#domainTable tbody');
+      // Limpa o conteúdo anterior
+      tbody.innerHTML = '';
+      // Verifica se há resultados
+      if (data.results.length > 0) {
+        data.results.forEach(result => {
+          // Verifica se o provedor pode ser identificado
+          const provider = result.isp_name ? result.isp_name : 'Provedor Desconhecido';
+          // Converte o IP em uma descrição mais compreensível (por exemplo, usando um serviço de geolocalização)
+          // Neste exemplo, usaremos o próprio IP se não pudermos obter uma descrição
+          const ipDescription = result.ip;
+          // Cria uma nova linha na tabela
+          const row = tbody.insertRow();
+          // Insere as células da linha
+          const cellProvider = row.insertCell();
+          cellProvider.textContent = provider;
+          const cellIP = row.insertCell();
+          cellIP.textContent = ipDescription;
+        });
+      } else {
+        // Se não houver resultados, exibe uma mensagem na tabela
+        const row = tbody.insertRow();
+        const cell = row.insertCell();
+        cell.colSpan = 2;
+        cell.textContent = 'Nenhuma informação encontrada para este domínio.';
+        cell.textContent = provider; // Define o conteúdo do texto
+        cell.style.color = "white"; // Define a cor do texto
+      }
+    }
+    // Captura o botão de fechar
+    const closeAboutButton = document.getElementById('closeAbout');
+    // Adiciona um evento de clique ao botão de fechar
+    closeAboutButton.addEventListener('click', function () {
+      // Oculta a seção "Sobre a Aplicação"
+      aboutContent.style.display = 'none';
+    });
+    // Captura o botão do menu de navegação
+    const navbarButton = document.querySelector('.navbar-toggler');
+    // Captura o menu de navegação
+    const navbarMenu = document.querySelector('#navbarNav');
+    // Adiciona um evento de clique ao botão do menu
+    navbarButton.addEventListener('click', function () {
+      // Alterna a classe 'show' no menu de navegação ao clicar no botão
+      navbarMenu.classList.toggle('show');
+    });
   </script>
-  
-  
 </body>
+
 </html>
