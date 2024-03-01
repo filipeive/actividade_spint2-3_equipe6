@@ -12,7 +12,6 @@ router.get('/', async (req, res) => {
     const domain = req.params.domain; // Obtém o valor do parâmetro 'domain' da URL
     // Fazendo uma requisição para a API do Who Hosts This?
     const response = await axios.get(`https://www.who-hosts-this.com/APIEndpoint/Detect?key=${API_KEY}&url=${domain}`);
-    
     // Retornando os dados obtidos da API do Who Hosts This?
     res.json(response.data);
   } catch (error) {
