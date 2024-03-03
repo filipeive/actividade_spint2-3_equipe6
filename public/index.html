@@ -284,10 +284,9 @@ body::before {
       // Verifica se há resultados
       if (data.results.length > 0) {
         data.results.forEach(result => {
-          // Verifica se o provedor pode ser identificado
+     
           const provider = result.isp_name ? result.isp_name : 'Provedor Desconhecido';
-          // Converte o IP em uma descrição mais compreensível (por exemplo, usando um serviço de geolocalização)
-          // Neste exemplo, usaremos o próprio IP se não pudermos obter uma descrição
+       
           const ipDescription = result.ip;
           // Cria uma nova linha na tabela
           const row = tbody.insertRow();
