@@ -10,4 +10,4 @@ ENV NAME actividade_spint2-3_equipe6
 
 EXPOSE 5500
 
-CMD ["node", "index.js"]
+CMD ["node", "server.js"]
