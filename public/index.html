@@ -33,15 +33,16 @@
   </nav>  
   <div class="container mt-5">
     <h1 class="mb-4">Consulta de Domínio</h1>
+
     <form id="domainForm" class="mb-3">
-      <div class="input-group">
-        <input type="text" id="domainInput" class="form-control" placeholder="Digite o domínio"
-          aria-label="Digite o domínio" aria-describedby="button-addon">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="submit" id="button-addon"><i class="fas fa-search"></i>
-            Consultar</button>
+        <div class="input-group">
+            <input type="text" id="domainInput" class="form-control" placeholder="Digite o domínio" aria-label="Digite o domínio" required autofocus>
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit" id="button-addon"><i class="fas fa-search"></i> Consultar</button>
+            </div>
         </div>
-      </div>
+        <!-- Mensagem de erro -->
+        <div id="errorContainer" class="mt-2"></div>
     </form>
     <div id="domainInfo">
       <table id="domainTable" class="table">
@@ -123,6 +124,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
  <!--Custom Javascript-->
   <script src="assets/js/scripts.js"></script>
+  <script>
+    $(document).ready(function() {
+        $('#domainForm').submit(function(event) {
+            event.preventDefault();
+            
+            var input = $('#domainInput').val();
+            var pattern = /^[^\s@]+(\.[^\s@]+)+$/;
+
+            if (!pattern.test(input)) {
+                $('#errorContainer').html('<div class="alert alert-danger" role="alert">Por favor, insira um domínio válido no formato www.google.com ou google.com.</div>');
+            } else {
+                $('#errorContainer').empty();
+            }
+        });
+    });
+</script>
 </body>
 
 </html>
