@@ -80,6 +80,7 @@
     align-items: center;
     padding-top: 20px;
     color: #000;
+    border-radius: 20%;
   }
   
   .member-card img {

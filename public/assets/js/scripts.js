@@ -9,6 +9,7 @@
    // Alterna a exibição da seção "Sobre a Aplicação"
    aboutContent.style.display = aboutContent.style.display === 'none' ? 'block' : 'none';
  });
+ 
  // Captura o formulário
  const domainForm = document.getElementById('domainForm');
  // Adiciona um evento de submissão ao formulário
@@ -20,7 +21,7 @@
    // Chama a função para buscar informações do domínio
    fetchDomainInfo(domain);
  });
-
+ 
  // Função para buscar informações do domínio
  async function fetchDomainInfo(domain) {
    try {
@@ -38,6 +39,7 @@
      console.error('Erro:', error);
    }
  }
+ 
  // Função para exibir os dados do domínio na página
  function displayDomainInfo(data) {
    const tbody = document.querySelector('#domainTable tbody');
@@ -49,7 +51,6 @@
        // Verifica se o provedor pode ser identificado
        const provider = result.isp_name ? result.isp_name : 'Provedor Desconhecido';
        // Converte o IP em uma descrição mais compreensível (por exemplo, usando um serviço de geolocalização)
-       // Neste exemplo, usaremos o próprio IP se não pudermos obter uma descrição
        const ipDescription = result.ip;
        // Cria uma nova linha na tabela
        const row = tbody.insertRow();
@@ -58,30 +59,42 @@
        cellProvider.textContent = provider;
        const cellIP = row.insertCell();
        cellIP.textContent = ipDescription;
+       // Adiciona o botão "Mais Informações"
+       const cellMoreInfo = row.insertCell();
+       const moreInfoButton = document.createElement('button');
+       moreInfoButton.textContent = 'Mais Informações';
+       moreInfoButton.classList.add('btn', 'btn-primary');
+       moreInfoButton.addEventListener('click', function() {
+           // Substitua 'Google' pelo provedor real obtido dos dados
+           const searchQuery = encodeURIComponent(provider); // Codifica o provedor para ser uma URL válida
+           const searchURL = `https://www.google.com/search?q=${searchQuery}`;
+           window.open(searchURL, '_blank');
+       });
+       cellMoreInfo.appendChild(moreInfoButton);
      });
    } else {
      // Se não houver resultados, exibe uma mensagem na tabela
      const row = tbody.insertRow();
      const cell = row.insertCell();
-     cell.colSpan = 2;
+     cell.colSpan = 3; // Ajuste para incluir a nova coluna do botão
      cell.textContent = 'Nenhuma informação encontrada para este domínio.';
-     cell.textContent = provider; // Define o conteúdo do texto
      cell.style.color = "white"; // Define a cor do texto
    }
  }
- // Captura o botão de fechar
- const closeAboutButton = document.getElementById('closeAbout');
- // Adiciona um evento de clique ao botão de fechar
- closeAboutButton.addEventListener('click', function () {
-   // Oculta a seção "Sobre a Aplicação"
-   aboutContent.style.display = 'none';
- });
- // Captura o botão do menu de navegação
- const navbarButton = document.querySelector('.navbar-toggler');
- // Captura o menu de navegação
- const navbarMenu = document.querySelector('#navbarNav');
- // Adiciona um evento de clique ao botão do menu
- navbarButton.addEventListener('click', function () {
-   // Alterna a classe 'show' no menu de navegação ao clicar no botão
-   navbarMenu.classList.toggle('show');
- });
+ 
+     // Captura o botão de fechar
+     const closeAboutButton = document.getElementById('closeAbout');
+     // Adiciona um evento de clique ao botão de fechar
+     closeAboutButton.addEventListener('click', function () {
+       // Oculta a seção "Sobre a Aplicação"
+       aboutContent.style.display = 'none';
+     });
+     // Captura o botão do menu de navegação
+     const navbarButton = document.querySelector('.navbar-toggler');
+     // Captura o menu de navegação
+     const navbarMenu = document.querySelector('#navbarNav');
+     // Adiciona um evento de clique ao botão do menu
+     navbarButton.addEventListener('click', function () {
+       // Alterna a classe 'show' no menu de navegação ao clicar no botão
+       navbarMenu.classList.toggle('show');
+     });
