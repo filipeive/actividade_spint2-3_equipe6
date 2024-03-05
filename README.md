@@ -24,9 +24,10 @@ Para executar o projeto, siga estas etapas:
 1. Aceda ao sistema através do link: <a href="http://ec2-3-213-154-220.compute-1.amazonaws.com/who_host/">Consulta do dominio</a>
 2. Escreva o endereco e clica o botão Consultar.
 3. Certifique-se de ter o Docker instalado em sua máquina, caso queira rodar localmente.
-4. Execute o comando `docker run` para iniciar o container Docker localmente.
-5. Acesse a API em `http://localhost:5500/api/domain-info/{domínio}`.
-6. Utilize a página HTML fornecida para fazer consultas à API.
+4. Execute o comando `docker build actividade_spint2-3_equipe6` para iniciar o container Docker localmente.
+5. Execute run docker.
+6. Acesse a API em `http://localhost:5500/api/domain-info/{domínio}`.
+7. Utilize a página HTML fornecida para fazer consultas à API.
 
 ## Execução na AWS Cloud
 
