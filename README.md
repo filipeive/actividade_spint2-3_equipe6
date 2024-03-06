@@ -25,7 +25,7 @@ O objetivo deste projeto é criar uma API em JavaScript/NodeJS para consulta da 
 
 Para executar o projeto, siga estas etapas:
 
-1. Acesse ao sistema através do link: <a href="ec2-3-213-154-220.compute-1.amazonaws.com">Consulta o domínio</a>.
+1. Acesse ao sistema através do link: <a href="http://ec2-3-213-154-220.compute-1.amazonaws.com/who_host/">Consulta o domínio</a>.
 2. Escreva o endereço e clique no botão "Consultar".
 3. Certifique-se de ter o Docker instalado em sua máquina, caso queira rodar localmente.
 4. Execute o comando `docker run` para iniciar o container Docker localmente.
