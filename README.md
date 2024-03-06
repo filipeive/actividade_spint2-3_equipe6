@@ -10,7 +10,7 @@ O objetivo deste projeto é criar uma API em JavaScript/NodeJS para consulta da 
 
 - API pública escolhida: Who-Hosts-This.com, esta API nos permite vêr o endereço e o nome do provedor do site;
 - Tecnologias utilizadas: JavaScript, NodeJS, Docker, AWS Cloud, EC2;
-- Servidor nginx - como proxy reverso, direcionando o as requisições http com url /api/domain-info/ para a porta 5500 onde roda o node
+- Servidor nginx - como proxy reverso, direcionando o as requisições http com url /api/domain-info/ para a porta 5500 onde roda o node. [ficheiro](nginx/nginx.conf)
 - Docker - que é gerido pelo systemd, que inicia, reinicia, para o docker sempre que necessário. [O ficheir systemd](actividade_spint2-3_equipe6.service) 
 
 ### Estrutura do projeto:
