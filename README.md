@@ -8,8 +8,10 @@ O objetivo deste projeto é criar uma API em JavaScript/NodeJS para consulta da 
 
 ## Especificações
 
-- API pública escolhida: Who-Hosts-This.com
-- Tecnologias utilizadas: JavaScript, NodeJS, Docker, AWS Cloud
+- API pública escolhida: Who-Hosts-This.com, esta API nos permite vêr o endereço e o nome do provedor do site;
+- Tecnologias utilizadas: JavaScript, NodeJS, Docker, AWS Cloud, EC2;
+- Servidor nginx - como proxy reverso, direcionando o as requisições http com url /api/domain-info/ para a porta 5500 onde roda o node
+- Docker - que é gerido pelo systemd, que inicia, reinicia, para o docker sempre que necessário. [O ficheir systemd](actividade_spint2-3_equipe6.service) 
 
 ### Estrutura do projeto:
 
@@ -31,4 +33,9 @@ Para executar o projeto, siga estas etapas:
 4. Execute o comando `docker run` para iniciar o container Docker localmente.
 5. Acesse a API em `http://localhost:5500/api/domain-info/{domínio}`.
 6. Utilize a página HTML fornecida na pasta public para fazer consultas à API.
+
+## Dificuldades
+1. Fazer clone do repositório no EC2, uma vez que o responável por este serviço não é o criador do repositório (NB: isto não impediu de clonar localmente), a solução foi copiar os ficheiro para o server.
+2. Deploy do sistema, no servidor foi preciso fazer algumas alterações.
+ 
 
