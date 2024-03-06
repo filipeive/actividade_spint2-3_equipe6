@@ -39,5 +39,3 @@ O projeto também pode ser executado na AWS Cloud. A estratégia para executar o
 - [Deploy Node js Application on AWS EC2 Server](link_para_recurso_1)
 - [Deploy Node JS Docker Container to AWS ECS Cluster (Fargate)](link_para_recurso_2)
 - [Realizando seu primeiro deploy para o ECS da AWS](link_para_recurso_3)
-
-Por favor, escreva em português.
