@@ -28,6 +28,6 @@ app.get('/api/domain-info/:domain', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
+  console.log(`Servidor rodando em http://127.0.0.1:${port}/public/`);
 });
  
